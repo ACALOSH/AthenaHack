@@ -15,3 +15,6 @@ import { Tab2Page } from './tab2.page';
   declarations: [Tab2Page]
 })
 export class Tab2PageModule {}
+
+
+// import { Tab1Page } from '../../app/tab1/tab1.page';
