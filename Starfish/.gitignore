@@ -29,6 +29,9 @@ plugins/android.json
 plugins/ios.json
 $RECYCLE.BIN/
 
+# right so idk how else to protect the api key
+src/app/app.component.ts
+
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate

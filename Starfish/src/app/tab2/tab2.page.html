@@ -7,7 +7,38 @@
 </ion-header>
 
 <ion-content>
-	    <div>
-    	kill me tbh
-    </div>
+	<ion-row justify-content-center>
+
+		<ion-card>
+  <ion-card-content>
+    <p>
+    	Take a photo of an area you want to clean up, clean it, and upload a new one.
+    </p>
+    <p>
+    	Each pair of the photos earns you 5 points!
+    </p>
+  </ion-card-content>
+</ion-card>
+
+		<div style="align-content: center;">
+	    <ion-button size=large (click)="takeBeforePicture()" color="{{ post1.color }}">
+	    	Take before photo
+	    </ion-button>
+	</div>
+	    <p>
+	    	<img src="{{ beforephoto }}">
+	    </p>
+
+	   	<ion-button size=large (click)="takeAfterPicture()" color="{{ post2.color }}">
+	    	Take after photo
+	    </ion-button>
+	    <p>
+	    	<img src="{{ afterphoto }}">
+	    </p>
+	    <div style="align-content: center;">
+	    <ion-button size=large	 *ngIf="clicked" href="/tabs/tab1">
+	    	Great! Ready to submit?
+	    </ion-button>
+</div>
+</ion-row>
 </ion-content>

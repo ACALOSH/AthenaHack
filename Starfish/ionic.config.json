@@ -1,5 +1,7 @@
 {
   "name": "Starfish",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
