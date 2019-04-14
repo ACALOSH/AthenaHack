@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
 app-login {
     
 }
@@ -5,10 +7,15 @@ app-login {
 $white-color: #fff;
 $height100: 100%;
 
+
 ion-grid {
+	font-family: 'Pacifico', cursive;
+	font-size: 4em;
     width:100%;
     height: $height100;
-    background: pink;
+    background-image: url("https://cdn.japantimes.2xx.jp/wp-content/uploads/2017/04/n-cash-a-20170406-870x489.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 ion-row {
@@ -16,6 +23,7 @@ ion-row {
 }
 
 ion-col {
+	opacity: 0.5;
     background: $white-color;
 }
 

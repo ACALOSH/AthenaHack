@@ -1,12 +1,15 @@
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
+import { storage, initializeApp } from 'firebase';
 
 import { Component } from '@angular/core';
 import { Camera } from '@ionic-native/camera/ngx';
 // import { Tab1Page } from '../../app/tab1/tab1.page';
 
 import { NavController, NavParams } from '@ionic/angular';
+
+import * as deepai from 'deepai';
 
 
 @Component({
@@ -16,9 +19,13 @@ import { NavController, NavParams } from '@ionic/angular';
 })
 export class Tab2Page {
 
-	beforephoto: any;
-	afterphoto: any;
-	clicked: boolean;
+	public checked: boolean;
+	public temp: any;
+	public similarity: any;
+	public newstuff: any;
+	public beforephoto: any;
+	public afterphoto: any;
+	public clicked: boolean;
 	public post1: any = {color: 'primary'};
 	public post2: any = {color: 'primary'};
 
@@ -38,17 +45,6 @@ export class Tab2Page {
 	  }).then((imageData) => {
 	  	this.beforephoto = 'data:image/jpeg;base64,' + imageData;
 
-	  	// const bytes: string = atob(this.beforephoto);
-    //   	const byteNumbers = new Array(bytes.length);
-    //   	for (let i = 0; i < bytes.length; i++) {
-    //     	byteNumbers[i] = bytes.charCodeAt(i);
-    //   	}
-    //   	const byteArray = new Uint8Array(byteNumbers);
-
-    //   	const blob: Blob = new Blob([byteArray], { type: 'image/jpeg' });
-
-  		// this.file.writeFile(this.file.dataDirectory, 'file.jpeg', blob);
-
 	  }, error => {
 	  	console.log("oops");
 	  });
@@ -67,26 +63,36 @@ export class Tab2Page {
 		
 	  }).then((imageData) => {
 	  	this.afterphoto = 'data:image/jpeg;base64,' + imageData;
+
+	  	deepai.setApiKey('d69babe1-068f-4fbe-bb48-7bcb06c07f14');
+
+	  	this.similarity = deepai.callStandardApi("image-similarity", {
+        	image1: this.beforephoto,
+        	image2: this.afterphoto,
+		});
+
+	  	// this.similarity = this.temp.resolve();
+
 	  	this.clicked = true;
+	  	this.checked= true;
 
 	  }, error => {
 	  	console.log("oops");
 	  });
+	}
 
-	 //  compareSimilarity(): void {
-		// // Example posting a local image file (Node.js only):
-		// const fs = require('fs');
-
-		// const deepai = require('deepai'); // OR include deepai.min.js as a script tag in your HTML
-
-		// deepai.setApiKey('YOUR_API_KEY');
-
-		// var resp = await deepai.callStandardApi("image-similarity", {
-		//         image1: fs.createReadStream(this.beforephoto),
-		//         image2: fs.createReadStream(this.afterphoto),
-		// });
-		// console.log(resp);
-	 //  }
-}
-
+	// async displayPic(): Promise<any>{
+	//  	try {
+	//  		deepai.setApiKey('d69babe1-068f-4fbe-bb48-7bcb06c07f14');
+	// 		var resp = await deepai.callStandardApi("image-similarity", {
+ //        	image1: this.beforephoto,
+ //        	image2: this.afterphoto,
+	// 		});
+	// 		return resp;
+	//  	} catch (e) {
+	//  		console.log(e)
+	//  	}
+	//   // 	this.newstuff = this.beforephoto;
+	//   // };
+	// }
 }

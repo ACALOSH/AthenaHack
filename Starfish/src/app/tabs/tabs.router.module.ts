@@ -44,7 +44,7 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: '/tabs/tab1',
-    pathMatch: 'full'
+    loadChildren: '../tab2/tab2.module#Tab2PageModule',
   }
 ];
 

@@ -36,9 +36,21 @@
 	    	<img src="{{ afterphoto }}">
 	    </p>
 	    <div style="align-content: center;">
-	    <ion-button size=large *ngIf="clicked" routerLink="/tab1" routerDirection="forward">
-	    	Great! Ready to submit?
+	    <ion-button size=large	*ngIf="clicked" href="/tab1">
+	    	Great! Your image looks like it has been taken in the same location. Ready to submit?
 	    </ion-button>
+	    <div *ngIf="clicked">
+	    	<p>This is your similarity score: {{ similarity }}</p>
+	    </div>
 </div>
 </ion-row>
 </ion-content>
+
+<!-- <script src="https://cdnjs.deepai.org/deepai.min.js"></script>
+<script>deepai.setApiKey('d69babe1-068f-4fbe-bb48-7bcb06c07f14');
+
+var resp = await deepai.callStandardApi("image-similarity", {
+        image1: {{ beforephoto }},
+        image2: {{ afterphoto }},
+});
+alert(resp);</script> -->
