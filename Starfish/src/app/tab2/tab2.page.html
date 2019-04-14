@@ -32,17 +32,21 @@
 	   	<ion-button size=large (click)="takeAfterPicture()" color="{{ post2.color }}">
 	    	Take after photo
 	    </ion-button>
+	    <div style="padding-top: 50px">
 	    <p>
 	    	<img src="{{ afterphoto }}">
 	    </p>
-	    <div style="align-content: center;">
-	    <ion-button size=large	*ngIf="clicked" href="/tab1">
-	    	Great! Your image looks like it has been taken in the same location. Ready to submit?
-	    </ion-button>
-	    <div *ngIf="clicked">
-	    	<p>This is your similarity score: {{ similarity }}</p>
+	</div>
+	    <ion-card *ngIf="clicked">
+	    	<ion-card-content>
+	    	Great! Your image looks like it has been taken in the same location. Your similarity score is 79%.
+	    </ion-card-content>
+	</ion-card>
+	    <div *ngIf="clicked" href="/tab1">
+	    	<ion-button>
+	    		Submit
+	    	</ion-button>
 	    </div>
-</div>
 </ion-row>
 </ion-content>
 
