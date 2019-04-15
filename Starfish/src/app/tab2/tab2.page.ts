@@ -64,13 +64,6 @@ export class Tab2Page {
 	  }).then((imageData) => {
 	  	this.afterphoto = 'data:image/jpeg;base64,' + imageData;
 
-	  	deepai.setApiKey('d69babe1-068f-4fbe-bb48-7bcb06c07f14');
-
-	  	this.similarity = deepai.callStandardApi("image-similarity", {
-        	image1: this.beforephoto,
-        	image2: this.afterphoto,
-		});
-
 	  	// this.similarity = this.temp.resolve();
 
 	  	this.clicked = true;
@@ -80,19 +73,4 @@ export class Tab2Page {
 	  	console.log("oops");
 	  });
 	}
-
-	// async displayPic(): Promise<any>{
-	//  	try {
-	//  		deepai.setApiKey('d69babe1-068f-4fbe-bb48-7bcb06c07f14');
-	// 		var resp = await deepai.callStandardApi("image-similarity", {
- //        	image1: this.beforephoto,
- //        	image2: this.afterphoto,
-	// 		});
-	// 		return resp;
-	//  	} catch (e) {
-	//  		console.log(e)
-	//  	}
-	//   // 	this.newstuff = this.beforephoto;
-	//   // };
-	// }
 }
